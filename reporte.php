@@ -31,7 +31,46 @@ include"conexion.php";
                         <div class="tab-content" id="myTabContent">
                             <!--se agrego la tabla de generos grafico0 -->
                             <?php include"reportegrafico1.php"; ?> 
-                            
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                 <center>
+                                    <br>
+                                     <br>
+                                      <br>
+                                  <table class="table table-bordered table-dark">
+                                    
+                                     <thead >
+                                       <tr>
+                                       <th scope="col">Pais </th>
+                                       <th scope="col">Generos</th>
+                                        <th scope="col">Cantidad </th>
+                                      
+                                       </thead>
+                                     
+                                         <tbody>
+                                       </tr>
+                                    <?php
+                                   //$query= mysqli_query($conection,"SELECT m.Count() f.Count() from covid Where Sexo='masculino' & Sexo='femenino'");
+                         //$query= mysqli_query($conection," select Sexo, count(*) as covid19 from covid group by SEXO");
+                      $query= mysqli_query($conection,"select Pais, Sexo , count(*) as covid19 from covid  group by Pais, Sexo;");
+
+                                    $result=mysqli_num_rows($query);
+
+                                    if($result > 0){
+                                        while($data= mysqli_fetch_array($query)){
+                                    
+                                    ?>
+                                    <tr>
+                                    <td><?php echo $data["Pais"]; ?></td>
+                                    <td><?php echo $data["Sexo"]; ?></td>
+                                    <td><?php echo $data["covid19"]; ?></td>
+                                                               
+                                    </tr>
+                                       <?php 
+                                       }
+                                    }
+                                    ?>
+              
+                                    </tbody>
                                     </table>
 
 
