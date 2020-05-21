@@ -25,6 +25,9 @@ include"registro.php"
                             <li class="nav-item">
                                 <a class="nav-link" href="reporte.php" id="profile-tab" data-toggle="tab" href="reporte.php" role="tab" aria-controls="profile" aria-selected="false" >Estadistica</a>
                             </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="reporteconsultaprueba.php" id="profile-tab" data-toggle="tab" href="reportegrafico.php" role="tab" aria-controls="profile" aria-selected="false">Hacer_Consulta</a>
+                            </li>
                         </ul>
                         
                         <div class="tab-content" id="myTabContent">

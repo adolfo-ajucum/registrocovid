@@ -1,34 +1,56 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <title>Crear un gráfico circular con Google Chart usando PHP y MySQL </title>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script type="text/javascript">
-            function drawChart() {
-                // call ajax function to get sports data
-                var jsonData = $.ajax({
-                    url: "getData.php",
-                    dataType: "json",
-                    async: false
-                }).responseText;
-                //The DataTable object is used to hold the data passed into a visualization.
-                var data = new google.visualization.DataTable(jsonData);
- 
-                // To render the pie chart.
-                var chart = new google.visualization.PieChart(document.getElementById('chart_container'));
-                chart.draw(data, {width: 800, height: 500});
-            }
-            // load the visualization api
-            google.charts.load('current', {'packages':['corechart']});
- 
-            // Set a callback to run when the Google Visualization API is loaded.
-            google.charts.setOnLoadCallback(drawChart);
-        </script>
+<?php
+		
     
-    </head>
-    <body>
-           <div id="chart_container"></div>
-    </body>
+   // $sql ="SELECT Sexo, count(*) as covid19 FROM covid WHERE Edad like '%$buscar%' or Sexo like '%$buscar%' or Pais like '%$buscar%'or Departamento like 'quetzaltenango'or Municipio like '%$buscar%' group by Sexo";
+
+    $con = new mysqli("localhost","root","","covid19");
+    //$sql ="SELECT count(Sexo) FROM covid WHERE Sexo='masculino'";
+    $sql =" select Sexo, count(*) as covid2019 from covid group by SEXO";
+    
+    $res = $con-> query ($sql);
+    $con->close();
+?>
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Genero', 'Cantidades'],
+         <?php
+           
+         while($fila = $res->fetch_assoc()){
+             echo "['".$fila["Sexo"]."',".$fila["covid2019"]."],";
+           
+         }
+
+         ?>
+        ]);
+
+        var options = {
+          title: 'GRAFICA DE GENEROS DE COVID2019',
+          is3D: true
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+    
+  <body>
+        <div id="piechart" style="width: 800px; height: 500px;"></div>
+    <div>
+        
+    </div>
+  </body>
 </html>
+
+
 

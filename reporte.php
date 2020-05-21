@@ -2,19 +2,23 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
+<
 <!------ Include the above in your HEAD tag ---------->
 <?php
 include"registro.php";
 include"conexion.php";
 ?>
 
-
-
 <div class="container register">
 <form action="" method="POST">
 
                 <div class="row">
-  
+                   <!--form  action="buscar_usuario.php" method="get" class="form_search">                                 
+                                  <input type="text"  name="busqueda" id="busqueda" pla
+                                  ceholder="Buscar">         
+                                  <input type="submit" value="Buscar" class="btn_search" >
+                            </form-->
+              
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" href="index.php" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Registro</a>
@@ -22,16 +26,20 @@ include"conexion.php";
                             <li class="nav-item">
                                 <a class="nav-link" href="reporte.php" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Estadistica</a>
                             </li>
-                             <!--li class="nav-item">
-                                <a class="nav-link" href="reporte.php" id="profile-tab" data-toggle="tab" href="reportegrafico.php" role="tab" aria-controls="profile" aria-selected="false">Grafico</a>
-                            </li-->
+                               <li class="nav-item">
+                                <a class="nav-link" href="reporteconsultaprueba.php" id="profile-tab" data-toggle="tab" href="reportegrafico.php" role="tab" aria-controls="profile" aria-selected="false">Hacer_Consulta</a>
+                            </li>
                         </ul>
                             <h3 class="register-heading" ></h3>
-                            
+                           
+                             
                         <div class="tab-content" id="myTabContent">
-                            <!--se agrego la tabla de generos grafico0 -->
+                            <!--se agrego la tabla de generos grafico0  -->
                             <?php include"reportegrafico1.php"; ?> 
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            
+
+                            
+                            <!--div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                  <center>
                                     <br>
                                      <br>
@@ -47,11 +55,11 @@ include"conexion.php";
                                        </thead>
                                      
                                          <tbody>
+
                                        </tr>
-                                    <?php
-                                   //$query= mysqli_query($conection,"SELECT m.Count() f.Count() from covid Where Sexo='masculino' & Sexo='femenino'");
-                         //$query= mysqli_query($conection," select Sexo, count(*) as covid19 from covid group by SEXO");
-                      $query= mysqli_query($conection,"select Pais, Sexo , count(*) as covid19 from covid  group by Pais, Sexo;");
+
+                            <?php
+                              $query= mysqli_query($conection,"select Pais, Sexo , count(*) as covid19 from covid  group by Pais, Sexo;");
 
                                     $result=mysqli_num_rows($query);
 
@@ -70,12 +78,14 @@ include"conexion.php";
                                     }
                                     ?>
               
-                                    </tbody>
+                                    </tbody-->
+   
                                     </table>
 
 
 
-                                
+
+                               
                                      <table class="table table-bordered table-dark">
                                     
                                      <thead >
@@ -120,54 +130,15 @@ include"conexion.php";
                                        }
                                     }
                                     ?>
-							
+              
                                     </tbody>
-   
-
-                           <!--DOCTYPE html>
-                          <html>
-                              <head>
-                              <title>Crear un gráfico circular con Google Chart usando PHP y MySQL </title>
-                                  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                                  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-                                  <script type="text/javascript">
-                                      function drawChart() {
-                                          // call ajax function to get sports data
-                                          var jsonData = $.ajax({
-                                              url: "getData.php",
-                                              dataType: "json",
-                                              async: false
-                                          }).responseText;
-                                          //The DataTable object is used to hold the data passed into a visualization.
-                                          var data = new google.visualization.DataTable(jsonData);
-
-                                          // To render the pie chart.
-                                          var chart = new google.visualization.PieChart(document.getElementById('chart_container'));
-                                          chart.draw(data, {width: 800, height: 500});
-                                      }
-                                      // load the visualization api
-                                      google.charts.load('current', {'packages':['corechart']});
-
-                                      // Set a callback to run when the Google Visualization API is loaded.
-                                      google.charts.setOnLoadCallback(drawChart);
-                                  </script>
-                              
-                              </head>
-                              <body>
-                                     <div id="chart_container"></div>
-                              </body>
-                          </html-->
-                                    </table>
-								                      </center>
+                                       </table>
+                                      </center>
                                     </div>
-                                     
-                                    <br>
-                                
+                                 </table>
+                                 <br>       
+                               </div>
+                                    </div>
+                                  </form>
                                 </div>
-
-                        
-                       
-                  
-                </div>
-              </form>
-            </div>
+            

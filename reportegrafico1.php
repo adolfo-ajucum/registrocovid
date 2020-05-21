@@ -1,7 +1,8 @@
 <?php
     $con = new mysqli("localhost","root","","covid19");
     //$sql ="SELECT count(Sexo) FROM covid WHERE Sexo='masculino'";
-    $sql =" select Sexo, count(*) as covid2019 from covid group by SEXO";
+    $sql =" select Pais, count(*) as covid2019 from covid group by Pais";
+    
     $res = $con-> query ($sql);
     $con->close();
 ?>
@@ -20,7 +21,7 @@
          <?php
            
          while($fila = $res->fetch_assoc()){
-             echo "['".$fila["Sexo"]."',".$fila["covid2019"]."],";
+             echo "['".$fila["Pais"]."',".$fila["covid2019"]."],";
            
          }
 
@@ -28,7 +29,7 @@
         ]);
 
         var options = {
-          title: 'GRAFICA DE GENEROS DE COVID2019',
+          title: 'GRAFICA POR PAIS DE COVID2019',
           is3D: true
         };
 
@@ -42,7 +43,7 @@
   <body>
         <div id="piechart" style="width: 800px; height: 500px;"></div>
     <div>
-        <H3 COLOR= "WHITE">TABLA DE INGRESOS DE COVID 2019</H3>
+        
     </div>
   </body>
 </html>
