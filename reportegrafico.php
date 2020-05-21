@@ -3,7 +3,7 @@
     
    // $sql ="SELECT Sexo, count(*) as covid19 FROM covid WHERE Edad like '%$buscar%' or Sexo like '%$buscar%' or Pais like '%$buscar%'or Departamento like 'quetzaltenango'or Municipio like '%$buscar%' group by Sexo";
 
-    $con = new mysqli("localhost","root","","covid19");
+    $con = new mysqli("localhost","root","zTfKnJNaG8CN","covid19");
     //$sql ="SELECT count(Sexo) FROM covid WHERE Sexo='masculino'";
     $sql =" select Sexo, count(*) as covid2019 from covid group by SEXO";
     

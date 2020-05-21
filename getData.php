@@ -1,6 +1,6 @@
 <?php 
 // MySQL database connection code
-$connection = mysqli_connect("localhost","root","","covid19") or die("Error " . mysqli_error($connection));
+$connection = mysqli_connect("localhost","root","zTfKnJNaG8CN","covid19") or die("Error " . mysqli_error($connection));
 //Fetch productos data C  / count(*)
 $sql = "SELECT * FROM covid "; 
 $result = mysqli_query($connection, $sql) or die("Error in Selecting " . mysqli_error($connection));

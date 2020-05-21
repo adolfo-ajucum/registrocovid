@@ -1,5 +1,5 @@
 <?php
-    $con = new mysqli("localhost","root","","covid19");
+    $con = new mysqli("localhost","root","zTfKnJNaG8CN","covid19");
     //$sql ="SELECT count(Sexo) FROM covid WHERE Sexo='masculino'";
     $sql =" select Pais, count(*) as covid2019 from covid group by Pais";
     

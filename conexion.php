@@ -2,7 +2,7 @@
 
 $host='localhost';
 $user='root';
-$password='';
+$password='zTfKnJNaG8CN';
 $db ='covid19';
 
 $conection= @mysqli_connect($host,$user,$password,$db);

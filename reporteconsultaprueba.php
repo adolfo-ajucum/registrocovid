@@ -186,7 +186,7 @@ include"conexion.php";
                                               /*"select Pais, Sexo , count(*) as covid19 from covid  group by Pais, Sexo;");*/
                                               /*  $res=mysqli_num_rows($query);*/
 
-                                        $con = new mysqli("localhost","root","","covid19");
+                                        $con = new mysqli("localhost","root","zTfKnJNaG8CN","covid19");
                                             //$sql ="SELECT count(Sexo) FROM covid WHERE Sexo='masculino'";
                                             $sql =" SELECT Sexo, count(*) as covid2019 FROM covid WHERE Edad like '%$buscarconsulta%' 
                                                 or Sexo like '%$buscarconsulta%'
